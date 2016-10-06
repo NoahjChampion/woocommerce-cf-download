@@ -8,5 +8,3 @@ notifications:
 php:
   - 5.3
   - 7.0
-
-
