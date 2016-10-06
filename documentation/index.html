@@ -1,0 +1,171 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<head lang="en">
+	<meta http-equiv="content-type" content="text/html;charset=utf-8">
+	<title>WooCommerce Amazon S3 Downloads</title>
+	<!-- Framework CSS -->
+	<link rel="stylesheet" href="assets/blueprint-css/screen.css" type="text/css" media="screen, projection">
+	<link rel="stylesheet" href="assets/blueprint-css/print.css" type="text/css" media="print">
+	<!--[if lt IE 8]><link rel="stylesheet" href="assets/blueprint-css/ie.css" type="text/css" media="screen, projection"><![endif]-->
+	<link rel="stylesheet" href="assets/blueprint-css/plugins/fancy-type/screen.css" type="text/css" media="screen, projection">
+	<style type="text/css" media="screen">
+		p, table, hr, .box { margin-bottom:25px; }
+		.box p { margin-bottom:10px; }
+	</style>
+</head>
+
+
+<body>
+	<div class="container">
+	
+		<h3 class="center alt">WooCommerce Amazon S3 Downloads by NuclearThemes, Version 1.0</h3>
+		
+		<hr>
+		
+		<h1 class="center">WooCommerce Amazon S3 Downloads</h1>
+		
+		<div class="borderTop">
+			<div class="span-6 colborder info prepend-1">
+				<p class="prepend-top">
+					<strong>
+					Created: 05 August, 2013<br>
+					By: NuclearThemes<br>
+					Support: <a href="http://codecanyon.net/user/NuclearThemes" target="_blank">via NuclearThemes</a>
+					</strong>
+				</p>
+			</div><!-- end div .span-6 -->		
+	
+			<div class="span-12 last">
+				<p class="prepend-top append-0">Thank you for purchasing this plugin. If you have any questions that are beyond the scope of this help file, please feel free to email via my user page contact form <a href="http://codecanyon.net/user/NuclearThemes" target="_blank">here</a>. Thanks so much!</p>
+			</div>
+		</div><!-- end div .borderTop -->
+		
+		<hr>
+		
+		<h2 id="toc" class="alt">Table of Contents</h2>
+		<ol class="alpha">
+			<li><a href="#installation">Installation</a></li>
+			<li><a href="#amazon-uploading">Amazon S3 and Uploading</a></li>
+			<li><a href="#setup">Configuring the plugin with Amazon S3</a></li>
+			<li><a href="#shortcodes">Generating a shortcode</a></li>
+			<li><a href="#product">Using shortcodes with a product</a></li>
+		</ol>
+		
+		<hr>
+		
+		<h3 id="installation"><strong>A) Installation</strong> - <a href="#toc">top</a></h3>
+		
+		<p>This plugin requires WooCommerce. If you don't already have WooCommerce installed, please visit the <a href="http://www.woothemes.com/woocommerce/" target="_blank">WooCommerce homepage</a>. There you can download the latest version and find <a href="http://docs.woothemes.com/document/woocommerce/" target="_blank">help to setup the plugin</a>.</p>
+		
+		<h4><strong>Installation</strong></h4>
+		<ol>
+			<li>Download the plugin ZIP package from CodeCanyon.</li>
+			<li>In the WordPress admin, go to <strong>Plugins -> Add New -> Upload</strong>.<br /><img src="assets/images/install_plugin.png" alt="Install Plugin" /></li>
+			<li>Press <strong>Choose File</strong>. Select the ZIP file you downloaded from CodeCanyon and press <strong>Install Now</strong>.<br /><img src="assets/images/install_now.png" alt="Install Now" /></li>
+			<li>Activate the plugin.</li>
+		</ol>
+
+		<hr>
+		
+		<h3 id="amazon-uploading"><strong>B) Amazon S3 and Uploading</strong> - <a href="#toc">top</a></h3>
+		
+		<h4 style="color: #ff0000;">Important: Please make sure that your AWS Bucket Name doesn't contain any capital letters and your object (file) name doesn't contain spaces! Spaces can be replaced with underscores or dashes.</h4>
+
+		<p>If you already have an Amazon S3 account and you're familiar with the process of uploading files you can <a href="#setup">skip to the next step</a>.</p>
+		
+		<p>To use this plugin you will need an Amazon S3 account. Please sign up to Amazon S3 by going to <a href="http://aws.amazon.com/s3" target="_blank">http://aws.amazon.com/s3</a>.</p>
+		
+		<h4><strong>Uploading files to Amazon S3</strong></h4>
+		
+		<ol>
+			<li>Once you have an Amazon S3 account, go to <a href="https://console.aws.amazon.com/s3/home">your Amazon S3 control panel</a>.</li>
+			<li>Click <strong>"Create Bucket"</strong>.<br /><img src="assets/images/s3_create_bucket.png" alt="Amazon S3 Create Bucket" /></li>
+			<li>Give your Bucket a unique name. Optionally select a different region. Click create<br /><img src="assets/images/s3_bucket_name_create.png" alt="Amazon S3 Create Bucket - Popup" /></li>
+			<li>Click your newly created bucket.<img src="assets/images/s3_click_bucket.png" alt="Amazon S3 Click New Bucket" /></li>
+			<li>Click <strong>Upload</strong>. Select the files you want to upload and then press <strong>Start Upload</strong>.<br /><img src="assets/images/s3_upload.png" alt="Amazon S3 Upload" /><br /><img src="assets/images/s3_start_upload.png" alt="Amazon S3 Start Upload" /></li>
+			<li>Your uploaded file(s) will appear inside your bucket.<br /><img src="assets/images/s3_uploaded_files.png" alt="Amazon S3 Uploaded Files" /></li>
+		</ol>
+
+		<hr>
+
+		<h3 id="setup"><strong>C) Configuring the plugin with Amazon S3</strong> - <a href="#toc">top</a></h3>
+
+		<p>To start using the plugin you will need to enter your Amazon AWS Access Keys.</p>
+		
+		<p>If you don't already have an Amazon AWS account, please refer back to <a href="#amazon-uploading">B) Amazon S3 and Uploading</a></p>
+		
+		<ol>
+			<li>In the WordPress admin, go to <strong>WooCommerce -> S3 Downloads</strong>.<br /><img src="assets/images/woocommerce_s3_downloads.png" alt="WooCommerce S3 Downloads" /></li>
+			<li>Retrive your <strong>Access Keys</strong> by going to <a href="https://console.aws.amazon.com/iam/home?#security_credential" target="_blank">https://console.aws.amazon.com/iam/home?#security_credential</a>
+				<ul>
+					<li>Click Continue to Security Credentials <br/><img src="assets/images/s3_continue_security.png" alt="S3 Security Credentials" /></li>
+					<li>Expand "Access Keys" (by pressing the "+" button). Press <strong>Create New Root Key</strong>.<br /><img src="assets/images/s3_new_root_key.png" alt="S3 New Root Key" /></li>
+					<li>Download your Key File by pressing <strong>Download Key File</strong>.<br /><img src="assets/images/s3_download_file.png" alt="S3 Download Key File" /></li>
+				</ul>
+			</li>
+		</ol>	
+		
+		<h4><strong>Upload CSV File</strong></h4>
+		<p>As of version 1.1 the process of configuring the plugin has been made easier. You can now upload your key file to the plugin.<br /><img src="assets/images/s3_upload_keys.png" alt="Upload Key File" /></p>
+		
+		<h4><strong><em>Alternatively - Enter Keys Manually</em></strong></h4>
+		<ol>
+			<li>Open the CSV file you downloaded and copy your keys. Only copy the actual keys (after the equals sign). <small>In the screenshot the keys have been altered for security</small><br /><img src="assets/images/s3_copy_keys.png" alt="S3 Copy Keys" /></li>
+			<li>Paste your keys into the plugin. Press <strong>Save Keys</strong>.<br /><img src="assets/images/s3_paste_keys.png" alt="S3 Paste Keys" /></li>
+			<li>You'll be presented with a new plugin screen.<br /><img src="assets/images/plugin_saved_keys.png" alt="New Plugin Screen" /></li>
+		</ol>
+		
+		<p>If you made a mistake when entering your keys you can easily remove them and start again. Just press <strong>Delete Keys</strong>.<br /><img src="assets/images/plugin_delete_keys.png" alt="Delete AWS Keys" /></p>
+
+		<hr>
+		
+		<h3 id="shortcodes"><strong>D) Generating a shortcode</strong> - <a href="#toc">top</a></h3>
+		
+		<p>Once you've configured the plugin you're ready to start generating shortcodes. Shortcodes are intended to be used on WooCommerce products but they can be used anywhere where shortcodes are allowed. <small>e.g. Posts or Pages</small></p>
+		
+		<p>The shortcode uses the bucket name, the object (file), and an expiry (set in minutes with a default of 5) to dynamically create links to your Amazon S3 File(s). When the link expires it can no longer be used to access the file. This is helpful in preventing link sharing.</p>
+		
+		<h4><strong>Using the shortcode generator</strong></h4>
+		<ol>
+			<li>Go to <strong>WooCommerce -> S3 Downloads</strong> in the WordPress admin<br /><img src="assets/images/woocommerce_s3_downloads_configured.png" alt="WooCommerce S3 Downloads - Configured" /></li>
+			<li>Select a bucket from the <strong>"AWS Bucket"</strong> dropdown. If no buckets are shown then check that you've <a href="#amazon-uploading">added a bucket in Amazon S3</a> and <a href="#setup">entered the correct access keys</a><br /><img src="assets/images/plugin_select_bucket.png" alt="Selecting bucket" /></li>
+			<li>Once a bucket has been selected the <strong>"AWS Object"</strong> dropdown will show all available files in that bucket. Select the file you uploaded.<br /><img src="assets/images/s3_select_object.png" alt="Select Object" /></li>
+			<li>Optional: By default the link will expire after 5 minutes. Use the "Expire After (in minutes)" box to change how long you want the link to remain valid for.<br /><img src="assets/images/plugin_link_expiry.png" alt="Select a link expiry" /></li>
+			<li>Press <strong>Generate Shortcode</strong>. Copy the shortcode and move on to the <a href="#product">next section</a>.<br /><img src="assets/images/plugin_generate_copy_shortcode.png" alt="Plugin Generate and Copy Shortcode" /></li>
+		</ol>
+		
+		<h4><strong>Shortcode format</strong></h4>
+		
+		<p>If you don't want to use the generator to create shortcodes it's easy to make them yourself. The shortcode has three attributes.</p>
+		<ol>
+			<li>bucket - The name of the S3 bucket</li>
+			<li>path - The path to the file in the bucket</li>
+			<li>expiry - Minutes until the link expires (defaults to 5)</li>
+		</ol>
+		
+		<p>To create your own shortcode use the template below</p>
+		
+		<code>[wc_s3_download bucket="YourS3Bucket" path="PathToFileInBucket" expiry="MinutesToExpire(number)"]</code>
+		
+		<hr>
+		
+		<h3 id="product"><strong>E) Using shortcodes with a product</strong> - <a href="#toc">top</a></h3>
+		
+		<p>Using the shortcode you generated in the last section we're going to setup a product using it.</p>
+		
+		<ol>
+			<li>In the WordPress admin, go to <strong>Products -> Add Product</strong>.<br /><img src="assets/images/products.png" alt="Products - Add Product" /></li>
+			<li>Enter a title and description for your product. Tick the "Downloadable" checkbox. Enter a price (in the screenshot I've entered 0 making the product free). Finally paste the shortcode in the textarea titled <strong>"File paths (one per line)"</strong>.<br /><img src="assets/images/product_setup.png" alt="Product Setup" /></li>
+			<li>Press <strong>Publish</strong>.<br /><img src="assets/images/product_publish.png" alt="Publish product" /></li>
+		</ol>
+		
+		<hr>
+		
+		<p>Once again, thank you so much for purchasing this theme. As I said at the beginning, I'd be glad to help you if you have any questions relating to this theme. No guarantees, but I'll do my best to assist. If you have a more general question relating to the themes on ThemeForest, you might consider visiting the forums and asking your question in the "Item Discussion" section.</p> 
+		
+		<p class="append-bottom alt large"><strong>NuclearThemes</strong></p>
+		<p><a href="#toc">Go To Table of Contents</a></p>
+		
+		<hr class="space">
+	</div><!-- end div .container -->
+</body>
+</html>
