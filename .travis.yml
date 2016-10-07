@@ -1,10 +1,6 @@
 language: php
 
-sudo: false
-
-notifications:
-  email: false
-
 php:
   - 5.3
+  - 5.5
   - 7.0
